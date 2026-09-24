@@ -1,0 +1,356 @@
+.explore {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(90% 28% at 50% 0%, rgba(30, 215, 96, 0.12), transparent 58%),
+    var(--bg);
+  color: #fff;
+  animation: explore-in var(--motion) var(--ease);
+}
+
+@keyframes explore-in {
+  from {
+    transform: translateX(18%);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.explore:focus {
+  outline: none;
+}
+
+.explore__top {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--header);
+  padding: 8px 8px 0;
+}
+
+.explore__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.explore__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 var(--space) 32px;
+}
+
+.explore__kicker {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: explore-rise 500ms ease both;
+}
+
+.explore h1 {
+  margin: 8px 0 0;
+  font-size: 28px;
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  animation: explore-rise 560ms ease both;
+}
+
+.explore-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  margin-top: 18px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  animation: explore-rise 620ms ease both;
+}
+
+.explore-search input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #000;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  outline: none;
+}
+
+.explore-search input::placeholder {
+  color: #6a6a6a;
+  font-weight: 500;
+}
+
+.explore-block {
+  margin-top: 28px;
+  animation: explore-rise 700ms ease both;
+}
+
+.explore-block:nth-of-type(2) {
+  animation-delay: 80ms;
+}
+
+.explore-block:nth-of-type(3) {
+  animation-delay: 140ms;
+}
+
+.explore-block h2,
+.trail h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.explore-block > p,
+.trail > p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.explore-categories {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.explore-category {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 148px;
+  padding: 16px;
+  border: 0;
+  border-radius: var(--radius-card);
+  color: #fff;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 160ms ease;
+}
+
+.explore-category:active {
+  transform: scale(0.985);
+}
+
+@media (hover: hover) {
+  .explore-category:hover {
+    transform: scale(1.015);
+  }
+}
+
+.explore-category:focus-visible,
+.explore__back:focus-visible,
+.trail__action:focus-visible,
+.era-pill:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.explore-category__wash {
+  position: absolute;
+  inset: 0;
+}
+
+.explore-category--warm {
+  background: #2a160f;
+}
+
+.explore-category--warm .explore-category__wash {
+  background:
+    radial-gradient(80% 90% at 90% 10%, rgba(232, 168, 74, 0.7), transparent 55%),
+    linear-gradient(160deg, #6a3a22 0%, #1a0e0a 78%);
+}
+
+.explore-category--soul {
+  background: #140818;
+}
+
+.explore-category--soul .explore-category__wash {
+  background:
+    radial-gradient(70% 80% at 0% 100%, rgba(30, 215, 96, 0.28), transparent 50%),
+    linear-gradient(145deg, #5a2348 0%, #1a1030 70%);
+}
+
+.explore-category__copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.explore-category__title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.explore-category__subtitle {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.trail {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: var(--radius-card);
+  background: var(--card);
+}
+
+.trail__path {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.trail__path img,
+.trail__node {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  border: 2px solid var(--card);
+  object-fit: cover;
+  background: #2a2a2a;
+}
+
+.trail__path img + img,
+.trail__node {
+  margin-left: -14px;
+}
+
+.trail__path {
+  position: relative;
+}
+
+.trail__path::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  right: 36px;
+  top: 50%;
+  height: 2px;
+  background: var(--green);
+  opacity: 0.8;
+}
+
+.trail__node {
+  position: relative;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, var(--green) 0 5px, transparent 6px),
+    #2a2a2a;
+}
+
+.trail > p.trail__artists {
+  color: #fff;
+  font-weight: 600;
+}
+
+.trail__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.trail__action:hover {
+  color: #fff;
+}
+
+.era-row {
+  display: flex;
+  gap: 8px;
+  margin: 14px calc(var(--space) * -1) 0;
+  padding: 2px var(--space) 8px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--space);
+  scrollbar-width: none;
+}
+
+.era-row::-webkit-scrollbar {
+  display: none;
+}
+
+.era-pill {
+  flex: 0 0 auto;
+  height: 44px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: background var(--fast) ease, color var(--fast) ease, transform var(--fast) var(--ease);
+}
+
+@media (hover: hover) {
+  .era-pill:hover {
+    background: rgba(255, 255, 255, 0.16);
+  }
+}
+
+.era-pill:active {
+  transform: scale(0.96);
+}
+
+.era-pill.is-selected {
+  background: var(--green);
+  color: #000;
+}
+
+.explore__back:hover {
+  transform: scale(1.04);
+}
+
+@keyframes explore-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

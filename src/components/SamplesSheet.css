@@ -1,0 +1,198 @@
+.samples-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.samples-layer.is-open {
+  pointer-events: auto;
+}
+
+.samples-layer__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.48);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity var(--motion) var(--ease);
+}
+
+.samples-layer.is-open .samples-layer__backdrop {
+  opacity: 1;
+}
+
+.samples-sheet {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 82%;
+  overflow: auto;
+  padding: 8px 16px 22px;
+  border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(105%);
+  transition: transform 380ms var(--ease);
+  touch-action: none;
+}
+
+.samples-layer.is-open .samples-sheet {
+  transform: translateY(0);
+}
+
+.samples-sheet.is-dragging {
+  transition: none;
+}
+
+.samples-sheet:focus {
+  outline: none;
+}
+
+.samples-sheet__handle {
+  width: 36px;
+  height: 4px;
+  margin: 4px auto 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.samples-sheet__header h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.samples-sheet__header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.samples-sheet__list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sample-card {
+  padding: 12px;
+  border-radius: var(--radius-card);
+  background: var(--card);
+}
+
+.sample-card__main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sample-card__art {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: var(--radius-art);
+  background: #3a1028;
+}
+
+.sample-card__copy {
+  min-width: 0;
+}
+
+.sample-card__label {
+  margin: 0;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.sample-card__copy h3 {
+  margin: 4px 0 0;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.sample-card__copy p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sample-card__timing {
+  margin: 14px 0 0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sample-timeline {
+  position: relative;
+  height: 4px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.sample-timeline__mark {
+  position: absolute;
+  top: 50%;
+  left: clamp(6px, var(--mark), calc(100% - 6px));
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(30, 215, 96, 0.2);
+  transform: translate(-50%, -50%);
+}
+
+.sample-card__view {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 44px;
+  margin-top: 4px;
+  padding: 0 2px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color var(--fast) ease;
+}
+
+@media (hover: hover) {
+  .sample-card__view:hover {
+    color: var(--green);
+  }
+}
+
+.sample-card__view:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.samples-sheet__note {
+  margin: 16px 0 4px;
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}

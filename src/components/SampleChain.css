@@ -1,0 +1,241 @@
+.sample-chain {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(80% 32% at 50% 0%, rgba(30, 215, 96, 0.14), transparent 60%),
+    var(--bg);
+  color: #fff;
+  animation: sample-chain-in var(--motion) var(--ease);
+}
+
+@keyframes sample-chain-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.sample-chain:focus {
+  outline: none;
+}
+
+.sample-chain__top {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-height: var(--header);
+  padding: 8px 8px 0;
+}
+
+.sample-chain__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sample-chain__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 var(--space) 28px;
+}
+
+.sample-chain__kicker {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sample-chain h1 {
+  margin: 8px 0 0;
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.sample-chain__subtitle {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.chain {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+
+.chain-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background: var(--card);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+@media (hover: hover) {
+  .chain-card:hover {
+    background: #2c2c2c;
+    transform: translateY(-1px);
+  }
+}
+
+.chain-card:active {
+  transform: scale(0.99);
+}
+
+.chain-card.is-selected {
+  border-color: var(--green);
+  background: #1c2a22;
+}
+
+.chain-card:focus-visible,
+.sample-chain__back:focus-visible,
+.chain-explore__action:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.chain-card img {
+  width: 84px;
+  height: 84px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #181818;
+}
+
+.chain-card__copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.chain-card__label {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chain-card__title {
+  margin-top: 4px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.chain-card__meta {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.chain__join {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  align-items: center;
+  height: 52px;
+}
+
+.chain__line {
+  justify-self: center;
+  width: 2px;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--green);
+  transform-origin: top center;
+  animation: chain-draw 700ms var(--ease);
+}
+
+@keyframes chain-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.chain__relation {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.chain-explore {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.chain-explore h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.chain-explore p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.chain-explore__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .chain-explore__action:hover {
+    color: var(--green);
+  }
+}
+
+.sample-chain__back:hover {
+  transform: scale(1.04);
+}

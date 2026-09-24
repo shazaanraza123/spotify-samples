@@ -1,0 +1,80 @@
+:root {
+  --bg: #121212;
+  --bg-deep: #050505;
+  --surface: #181818;
+  --card: #242424;
+  --card-raised: #2a2a2a;
+  --green: #1ed760;
+  --green-soft: rgba(30, 215, 96, 0.55);
+  --ink: #fff;
+  --muted: #b3b3b3;
+  --faint: rgba(255, 255, 255, 0.46);
+  --line: rgba(255, 255, 255, 0.08);
+  --radius-art: 8px;
+  --radius-card: 12px;
+  --radius-sheet: 16px;
+  --radius-pill: 999px;
+  --space: 20px;
+  --header: 52px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fast: 160ms;
+  --motion: 320ms;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--bg-deep);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  touch-action: manipulation;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+button:active {
+  transition: transform var(--fast) var(--ease);
+}
+
+.app-shell {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
